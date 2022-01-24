@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AccountService } from 'src/app/_services/account.service';
 
@@ -15,14 +16,14 @@ export class LoginModalComponent implements OnInit {
   submitBtnName: string;
   model: any = {};
 
-  constructor(public bsModalRef: BsModalRef, private accountService: AccountService) { }
+  constructor(public bsModalRef: BsModalRef, private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   login() {
     this.accountService.login(this.model).subscribe(response => {
-      console.log(response);
+      this.router.navigateByUrl('/games');
     }, error => {
       console.log(error);
     })

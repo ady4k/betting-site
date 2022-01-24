@@ -12,6 +12,13 @@ import { LoginModalComponent } from './_modals/login-modal/login-modal.component
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { GamesComponent } from './games/games.component';
+import { WithdrawComponent } from './withdraw/withdraw.component';
+import { GamesListComponent } from './games/games-list/games-list.component';
+import { AffiliatesComponent } from './affiliates/affiliates.component';
+import { InfoComponent } from './info/info.component';
+import { SharedModule } from './_modules/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +26,13 @@ import { RegisterComponent } from './register/register.component';
     NavComponent,
     LoginModalComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    MemberDetailComponent,
+    GamesComponent,
+    WithdrawComponent,
+    GamesListComponent,
+    AffiliatesComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +40,7 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    ModalModule.forRoot(),
-    BsDropdownModule.forRoot()
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,26 +1,35 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">4K Bet</a>
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Games</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Withdraw</a>
-            </li>
+        <a class="navbar-brand" routerLink="/" routerLinkActive="active">4K Bet</a>
+        <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUser$ | async">
+            <ng-container>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/games" routerLinkActive="active">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/affiliates" routerLinkActive="active">Affiliates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/withdraw" routerLinkActive="active">Withdraw</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/info" routerLinkActive="active">Info</a>
+                </li>
+            </ng-container>
         </ul>
-        
-            <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-                <a class="dropdown-toggle text-light" dropdownToggle>user</a>
+            
+        <div *ngIf="(accountService.currentUser$ | async) as user">
+            <button class="btn btn-outline-success mr-5" type="submit">Deposit</button>
+            <div class="dropdown d-inline"  dropdown>
+                <a class="dropdown-toggle text-light" dropdownToggle>{{user.username}}</a>
                 <div class="dropdown-menu mt-3" *dropdownMenu>
                     <a class="dropdown-item">Edit Profile</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" (click)="logout()">Logout</a>
                 </div>
             </div>
+        </div>
+            
 
             <button *ngIf="(accountService.currentUser$ | async) === null" 
                     class="btn btn-outline-success" 

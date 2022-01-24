@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Observable } from 'rxjs';
 import { LoginModalComponent } from '../_modals/login-modal/login-modal.component';
@@ -15,7 +16,7 @@ export class NavComponent implements OnInit {
   currentUser$: Observable<User>;
   
 
-  constructor(private modalService: BsModalService, public accountService: AccountService) { }
+  constructor(private modalService: BsModalService, public accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -37,5 +38,6 @@ export class NavComponent implements OnInit {
 
   logout() {
     this.accountService.logout();
+    this.router.navigateByUrl('/');
   }
 }
