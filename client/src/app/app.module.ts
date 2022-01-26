@@ -27,6 +27,7 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
+import { PhotoUploadComponent } from './members/photo-upload/photo-upload.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
     MemberListComponent,
     MemberCardComponent,
     MemberEditComponent,
+    PhotoUploadComponent,
   ],
   imports: [
     BrowserModule,

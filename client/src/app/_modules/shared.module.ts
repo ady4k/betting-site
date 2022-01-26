@@ -4,6 +4,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs'
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 
@@ -15,12 +16,14 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     NgxGalleryModule,
+    FileUploadModule
   ],
   exports: [
     ModalModule,
     BsDropdownModule,
     TabsModule,
-    NgxGalleryModule
+    NgxGalleryModule,
+    FileUploadModule
   ]
 })
 export class SharedModule { }
