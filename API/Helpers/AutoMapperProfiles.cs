@@ -12,6 +12,7 @@ namespace API.Helpers
                 .ForMember(dest => dest.AvatarUrl, opt => opt.MapFrom(src =>
                 src.Avatar.Url));
             CreateMap<Photo, PhotoDto>();
+            CreateMap<MemberUpdateDto, AppUser>();
         }
     }
 }

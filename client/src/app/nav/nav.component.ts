@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { LoginModalComponent } from '../_modals/login-modal/login-modal.component';
 import { User } from '../_models/user';
 import { AccountService } from '../_services/account.service';
+import { MembersService } from '../_services/members.service';
 
 @Component({
   selector: 'app-nav',
@@ -16,7 +17,8 @@ export class NavComponent implements OnInit {
   currentUser$: Observable<User>;
   
 
-  constructor(private modalService: BsModalService, public accountService: AccountService, private router: Router) { }
+  constructor(private modalService: BsModalService, public accountService: AccountService, private router: Router,
+              private memberService: MembersService) { }
 
   ngOnInit(): void {
   }

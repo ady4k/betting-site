@@ -1,0 +1,58 @@
+<div class="row" *ngIf="member">
+    <div class="col-4"> 
+        <h1>Editing your profile</h1>
+    </div>
+    <div class="col-8">
+        <div class="alert alert-dark" *ngIf="editForm.dirty"> 
+            <p><strong>Your profile has been edited. Any unsaved changes will be lost.</strong></p>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header">
+                <p><strong>{{member.userName}} - {{member.first_Name}} {{member.last_Name}}</strong></p>
+            </div>
+            <img src="{{member.avatarUrl || './assets/user.png'}}" alt="{{member.userName}}" class="card-img-top img-thumbnail">
+            <div class="card-body">
+                <div>
+                    <p><strong>Name:</strong> {{member.first_Name}} {{member.last_Name}}</p>
+                </div>
+                <div>
+                    <p><strong>Member Since:</strong> {{member.created}}</p>
+                </div>
+                <div>
+                    <p><strong>Last Active:</strong> {{member.lastActive}}</p>
+                </div>
+                <div>
+                    <p><strong>Money:</strong> {{member.money}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group d-flex">
+                    <button [disabled]="!editForm.dirty" form="editForm" type="submit" class="btn btn-dark btn-block">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <tabset class="member-tabset">
+            <tab heading='Profile Details'>
+                <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
+                    <h4>Name:</h4>
+                    <div class="form-inline">
+                        <label for="first_Name">First Name</label>
+                        <input [(ngModel)]="member.first_Name" type="text" name="first_Name" class="form-control mx-2">
+                        <label for="last_Name">Last Name</label>
+                        <input [(ngModel)]="member.last_Name" type="text" name="last_Name" class="form-control mx-2">
+                    </div>
+                <h4 class="mt-5">Email:</h4>
+                <input [(ngModel)]="member.email" type="email" name="email" class="form-control mx-2">
+                </form>
+            </tab>
+            <tab heading='Change Avatar'>
+                <p>avatr editing</p>
+            </tab>
+        </tabset>
+    </div>
+</div>

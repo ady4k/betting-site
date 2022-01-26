@@ -1,1 +1,46 @@
-<p>member-detail works!</p>
+<div class="row" *ngIf="member">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header">
+                <p><strong>{{member.userName}} - {{member.first_Name}} {{member.last_Name}}</strong></p>
+            </div>
+            <img src="{{member.avatarUrl || './assets/user.png'}}" alt="{{member.userName}}" class="card-img-top img-thumbnail">
+            <div class="card-body">
+                <div>
+                    <p><strong>Name:</strong> {{member.first_Name}} {{member.last_Name}}</p>
+                </div>
+                <div>
+                    <p><strong>Member Since:</strong> {{member.created}}</p>
+                </div>
+                <div>
+                    <p><strong>Last Active:</strong> {{member.lastActive}}</p>
+                </div>
+                <div>
+                    <p><strong>Money:</strong> {{member.money}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group d-flex">
+                    <button class="btn btn-dark">Add Friend</button>
+                    <button class="btn btn-primary">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <tabset class="member-tabset">
+            <tab heading='Gambling History'>
+                <p>code me</p>
+            </tab>
+            <tab heading='Chat'>
+                <p>live chat private messages</p>
+            </tab>
+            <tab heading='Full-Sized Avatar'>
+                <div class="text-center">
+                    <img src="{{member.avatarUrl}}" alt="./assets/user.png" class="img-fluid" style="width:100%;">
+                </div>
+            </tab>
+        </tabset>
+    </div>
+</div>
