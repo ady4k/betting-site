@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminToolsComponent } from './admin/admin-tools/admin-tools.component';
 import { AffiliatesComponent } from './affiliates/affiliates.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
@@ -11,6 +12,7 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
+import { AdminGuard } from './_guards/admin.guard';
 import { AuthGuard } from './_guards/auth.guard';
 import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 
@@ -28,7 +30,8 @@ const routes: Routes = [
       {path: 'info', component: InfoComponent},
       {path: 'members', component: MemberListComponent},
       {path: 'members/:username', component: MemberDetailComponent},
-      {path: 'member/edit', component: MemberEditComponent, canDeactivate: [PreventUnsavedChangesGuard]}
+      {path: 'member/edit', component: MemberEditComponent, canDeactivate: [PreventUnsavedChangesGuard]},
+      {path: 'admin', component: AdminToolsComponent, canActivate: [AdminGuard]}
     ]
   },
   {path: 'errors', component: TestErrorsComponent},

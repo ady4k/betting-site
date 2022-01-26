@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgxSpinnerModule } from 'ngx-spinner'
 
@@ -28,6 +28,9 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { PhotoUploadComponent } from './members/photo-upload/photo-upload.component';
+import { MainFormComponent } from './_forms/main-form/main-form.component';
+import { AdminToolsComponent } from './admin/admin-tools/admin-tools.component';
+import { HasRoleDirective } from './_directives/has-role.directive';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,9 @@ import { PhotoUploadComponent } from './members/photo-upload/photo-upload.compon
     MemberCardComponent,
     MemberEditComponent,
     PhotoUploadComponent,
+    MainFormComponent,
+    AdminToolsComponent,
+    HasRoleDirective,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +62,8 @@ import { PhotoUploadComponent } from './members/photo-upload/photo-upload.compon
     BrowserAnimationsModule,
     FormsModule,
     SharedModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},

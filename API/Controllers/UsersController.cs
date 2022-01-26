@@ -30,6 +30,7 @@ namespace API.Controllers
         }
 
         // api/users
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
         {

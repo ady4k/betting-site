@@ -13,6 +13,7 @@ namespace API.Helpers
                 src.Avatar.Url));
             CreateMap<Photo, PhotoDto>();
             CreateMap<MemberUpdateDto, AppUser>();
+            CreateMap<RegisterDto, AppUser>();
         }
     }
 }
