@@ -6,7 +6,6 @@ namespace API.Entities
 {
     public class AppUser : IdentityUser<int>
     {
-        public byte[] PasswordSalt { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
         public int Money { get; set; }

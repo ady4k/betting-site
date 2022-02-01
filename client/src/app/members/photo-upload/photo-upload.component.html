@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row" *ngIf="member.avatarUrl">
     <div class="col-8">
         <img src="{{member.avatarUrl}}" alt="{{member.avatarUrl}}" class="img-thumbnail p-1">
         <div class="text-center">
             <button class="btn-btn-sm btn-danger mt-2"
                     [disabled]="!member.avatarUrl"
-                    (click)="deletePhoto(member.Avatar.id)">Delete</button>
+                    (click)="deletePhoto(member.avatar.id)">Delete</button>
         </div>
     </div>
 </div>

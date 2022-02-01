@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { FileUploader } from 'ng2-file-upload';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
-import { take } from 'rxjs/operators';
+import { delay, take } from 'rxjs/operators';
 import { MembersService } from 'src/app/_services/members.service';
 import { Photo } from 'src/app/_models/photo';
 
@@ -35,6 +35,7 @@ export class PhotoUploadComponent implements OnInit {
   deletePhoto(photoId: number) {
     this.memberService.deletePhoto(photoId).subscribe(() => {
       this.member.Avatar = null;
+      window.location.reload();
     })
   }
 

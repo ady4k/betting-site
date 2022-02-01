@@ -72,7 +72,7 @@ namespace API.Controllers
             {
                 Username = user.UserName,
                 Token = await _tokenService.CreateToken(user),
-                PhotoUrl = user.Avatar.Url,
+                PhotoUrl = user.Avatar?.Url,
                 Money = user.Money
             };;
         }
